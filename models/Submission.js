@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Submission extends Model {}
 
-Project.init(
+Submission.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -23,10 +23,11 @@ Project.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
+    // my first thought was something like this, comments as a property of submissions, but instead im going to try comments as a new model
+    // comments: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -40,8 +41,8 @@ Project.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'submission',
   }
 );
 
-module.exports = Project;
+module.exports = Submission;

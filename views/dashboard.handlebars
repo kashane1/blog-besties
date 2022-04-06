@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Post a New Submission:</h3>
+
+    <form class="form new-submission-form">
+      <div class="form-group">
+        <label for="submission-name">Submission title:</label>
+        <input class="form-input" type="text" id="submission-name" name="submission-name" />
+      </div>
+      <div class="form-group">
+        <label for="submission-desc">Description:</label>
+        <textarea class="form-input" id="submission-desc" name="submission-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success">Post</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if submissions.length}}
+  <div class="col-md-6 submission-list">
+    <h3>All Submissions:</h3>
+
+    {{#each submissions as |submission|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/submission/{{submission.id}}">{{submission.name}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-secondary" data-id="{{submission.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<script src="./js/dashboard.js"></script>

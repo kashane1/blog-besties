@@ -1,0 +1,47 @@
+<div class="text-center">
+  <h2>{{name}}</h2>
+  <p>{{{get_emoji}}} Created by {{user.name}} on {{format_date date_created}}</p>
+  <p>{{description}}</p>
+  
+  <div>
+    <form class="form comment-form">
+      <div class="form-group">
+        <label for="user-comment"><span for="img" aria-label="writing hand">✍️</span></label>
+        <input class="form-input" type="text" id="user-comment" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Add Comment</button>
+      </div>
+    </form>
+  </div>
+
+<!-- need to work on this whole section alot -->
+  {{#if (comments.submission_id == id}}<!-- its not just comments.lengths, but more like submission.comments.lengths???? -->
+  <div>
+    <h4>All Comments:</h>
+
+    <!-- loop over each comment that links to this exact submission id -->
+    {{#each comments as |comment| }}
+    <div class="row mb-4 submission">
+      <div class="col-md-5">
+        <h2>
+          <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+          {{{get_emoji}}}
+          <a href="/comment/{{comment.id}}">{{comment.name}}</a>
+        </h2>
+        <p style="color:grey;">Commented by {{comment.user.name}} on {{format_date comment.date_created}}</p>
+      </div>
+      <div class="col-md-7">
+        <p>
+          {{submission.description}}
+        </p>
+      </div>
+    </div>
+    {{/each}}
+    
+    
+  </div>
+  {{/if}}
+</div>
+
+<script src="./js/submission.js"></script>

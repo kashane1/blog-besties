@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Code EVERY Day!",
+    "description": "This goes with out saying. The old expression, if you don't use it, you loose it, can clearly apply. The more you practice and engrain the knowledge, the better off you will be in the long term."
+  },
+  {
+    "name": "Javascript is King",
+    "description": "It is a great starting language for any coder. It is very powerful. And it can transition you to almost any other language with ease."
+  },
+  {
+    "name": "Get Comfortable with VS Code",
+    "description": "It is very important to know your tools that you are using before you can build anything with them"
+  }
+]
