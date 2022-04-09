@@ -7,34 +7,37 @@
     <form class="form comment-form">
       <div class="form-group">
         <label for="user-comment"><span for="img" aria-label="writing hand">✍️</span></label>
-        <input class="form-input" type="text" id="user-comment" />
+        <textarea class="form-input" id="user-comment" name="user-comment"></textarea>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="submit">Add Comment</button>
+        <button class="btn btn-primary" data-id="{{id}}" type="submit" id="commentBtn">Add Comment</button>
       </div>
     </form>
   </div>
 
 <!-- need to work on this whole section alot -->
-  {{#if (comments.submission_id == id}}<!-- its not just comments.lengths, but more like submission.comments.lengths???? -->
+  {{#if comments.lengths}}<!-- its not just comments.lengths, but more like submission.comments.lengths???? -->
   <div>
-    <h4>All Comments:</h>
+    <h3>All Comments:</h3>
 
     <!-- loop over each comment that links to this exact submission id -->
     {{#each comments as |comment| }}
-    <div class="row mb-4 submission">
-      <div class="col-md-5">
-        <h2>
+    <div class="row mb-4 comment-list">
+      <div class="col-md-2">
+        <h4>
           <!-- Call helper function with triple brackets to render the emoji span as HTML -->
           {{{get_emoji}}}
-          <a href="/comment/{{comment.id}}">{{comment.name}}</a>
-        </h2>
+          <a href="/comments/{{comment.id}}">{{comment.name}}</a>
+        </h4>
         <p style="color:grey;">Commented by {{comment.user.name}} on {{format_date comment.date_created}}</p>
       </div>
       <div class="col-md-7">
         <p>
-          {{submission.description}}
+          {{comment.description}}
         </p>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-secondary" data-id="{{comment.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
@@ -44,4 +47,4 @@
   {{/if}}
 </div>
 
-<script src="./js/submission.js"></script>
+<script src="/js/comment.js"></script>

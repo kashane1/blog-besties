@@ -1,14 +1,17 @@
 [
   {
-    "name": "Code EVERY Day!",
-    "description": "This goes with out saying. The old expression, if you don't use it, you loose it, can clearly apply. The more you practice and engrain the knowledge, the better off you will be in the long term."
+    "description": "This is a comment!",
+    "submission_id": "2",
+    "user_id": "1"
   },
   {
-    "name": "Javascript is King",
-    "description": "It is a great starting language for any coder. It is very powerful. And it can transition you to almost any other language with ease."
+    "description": "This is a comment as well.",
+    "submission_id": "3",
+    "user_id": "3"
   },
   {
-    "name": "Get Comfortable with VS Code",
-    "description": "It is very important to know your tools that you are using before you can build anything with them"
+    "description": "This is another comment.",
+    "submission_id": "1",
+    "user_id": "2"
   }
 ]

@@ -1,3 +1,4 @@
+// start of the function that creates a new submission
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -8,20 +9,21 @@ const newFormHandler = async (event) => {
   if (name && description) {
     const response = await fetch(`/api/submissions`, {
       method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
+      body: JSON.stringify({ name, description }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to create submissions');
     }
   }
 };
 
+// start of the function that deletes a submission
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
@@ -31,17 +33,18 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/dashboard');
     } else {
-      alert('Failed to delete sumbission');
+      alert('Failed to delete submission');
     }
   }
 };
 
 document
-  .querySelector('.new-submissions-form')
-  .addEventListener('submit', newFormHandler);
+  .getElementById('submissionBtn')
+  .addEventListener('click', newFormHandler);
 
+// fancy solution for deleting multiple elements that match a class selector
 document
-  .querySelector('.submissions-list')
-  .addEventListener('click', delButtonHandler);
+  .querySelectorAll('.submissions-list')
+  .forEach(item => item.addEventListener('click', delButtonHandler));

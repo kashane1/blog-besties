@@ -31,6 +31,7 @@ Comment.init(
         model: 'submission',
         key: 'id',
       },
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

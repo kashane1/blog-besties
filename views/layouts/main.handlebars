@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog Besties</title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link type="text/css" rel="stylesheet" href="/css/jass.css">
+  <link type="text/css" rel="stylesheet" href="/css/style.css">
 </head>
 
-<body  style="background-image: linear-gradient(to bottom right, #000046,#1CB5E0);">
+<body style="background-image: linear-gradient(to bottom right, #fe5858,#ee9617); background-size: cover;">
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
@@ -17,13 +17,14 @@
         <a href="/">Blog Besties!</a>
       </h1>
       <nav>
+        <a href="/">Homepage</a> | 
         <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/dashboard">My Dashboard</a> |
+        {{!-- {{#if logged_in}} --}}
+        <a href="/dashboard">My Dashboard</a> | 
         <button class="no-button" id="logout">Logout</button>
-        {{else}}
+        {{!-- {{else}} --}}
         <a href="/login">Login</a>
-        {{/if}}
+        {{!-- {{/if}} --}}
       </nav>
     </header>
     <main class="container container-fluid mt-5">
@@ -31,7 +32,6 @@
       {{{ body }}}
     </main>
     <footer>
-      
     </footer>
   </div>
 
